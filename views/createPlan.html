@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Plan</title>
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Підключення CSS -->
+</head>
+<body>
+  <form class="create-plan-form">
+    <h2>Create Plan</h2>
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <input type="hidden" name="userId" value="<%= userId %>">
+    <label for="planType">Plan Type:</label>
+    <select name="planType" id="planType">
+      <option value="global">Global Plan</option>
+      <option value="yearly">Yearly Plan</option>
+      <option value="monthly">Monthly Plan</option>
+      <option value="weekly">Weekly Plan</option>
+      <option value="daily">Daily Plan</option>
+    </select>
+    <button type="submit">Create Plan</button>
+  </form>
+  <script src="/js/scripts.js"></script> <!-- Підключення JavaScript -->
+</body>
+</html>
