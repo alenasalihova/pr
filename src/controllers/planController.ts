@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-import { Plan, CreatePlanInput } from '/models/Plan';
-import { User, CreateUserInput } from '/models/User';
+import { Plan, CreatePlanInput } from './models/Plan';
+import { User, CreateUserInput } from './dist/models/User';
 
 const prisma = new PrismaClient();
 
@@ -17,7 +17,7 @@ export const createPlan = async (req: Request, res: Response) => {
       },
     });
     res.send(newPlan);
-  } catch (error) {
+  } catch (error:any) {
     res.status(500).send({
       message: error.message || 'Some error occurred while creating the Plan.',
     });
@@ -34,7 +34,7 @@ export const getPlansByUserIdAndType = async (req: Request, res: Response) => {
       },
     });
     res.send(plans);
-  } catch (error) {
+  } catch (error:any) {
     res.status(500).send({
       message: error.message || 'Some error occurred while retrieving plans.',
     });

@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const mysql = require('mysql');
-const authRoutes = require('./routes/authRoutes');
-const planRoutes = require('./routes/planRoutes');
-const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('../src/routes/authRoutes');
+const planRoutes = require('../src/routes/planRoutes');
+const userRoutes = require('../src/routes/userRoutes');
 
 const app = express();
 const port = 3000;
@@ -17,7 +17,7 @@ const db = mysql.createConnection({
   database: 'learning_app'
 });
 
-db.connect((err) => {
+db.connect((err:any) => {
   if (err) throw err;
   console.log('Connected to the database');
 });

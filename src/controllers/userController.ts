@@ -13,7 +13,7 @@ export const register = async (req: Request, res: Response) => {
       },
     });
     res.send(newUser);
-  } catch (error) {
+  } catch (error:any) {
     res.status(500).send({
       message: error.message || 'Some error occurred while creating the User.',
     });
