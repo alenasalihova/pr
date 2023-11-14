@@ -16,6 +16,7 @@ model User {
   username String
   password String
   plans Plan[]
+  @@index([username], name: "idx_username")
 }
 
 model Plan {
@@ -25,10 +26,13 @@ model Plan {
   userId Int
   user User     @relation(fields: [userId], references: [id])
   planType String
+  @@index([userId], name: "idx_userId")
+  @@index([planType], name: "idx_planType")
+  @@index([id], name: "idx_id")
 }
 
 model GlobalPlan {
-  id Int        @id @default(autoincrement())
+  id Int        @id @default(autoincrement()) 
   title String
   description String?
   created_at DateTime @default(now())
@@ -36,7 +40,7 @@ model GlobalPlan {
 }
 
 model YearlyPlan {
-  id Int        @id @default(autoincrement())
+  id Int        @id @default(autoincrement()) 
   globalPlanId Int
   title String
   description String?
@@ -47,7 +51,7 @@ model YearlyPlan {
 }
 
 model MonthlyPlan {
-  id Int        @id @default(autoincrement())
+  id Int        @id @default(autoincrement()) 
   yearlyPlanId Int
   title String
   description String?
@@ -58,7 +62,7 @@ model MonthlyPlan {
 }
 
 model WeeklyPlan {
-  id Int        @id @default(autoincrement())
+  id Int        @id @default(autoincrement()) 
   monthlyPlanId Int
   title String
   description String?
@@ -69,7 +73,7 @@ model WeeklyPlan {
 }
 
 model DailyPlan {
-  id Int        @id @default(autoincrement())
+  id Int        @id @default(autoincrement()) 
   weeklyPlanId Int
   title String
   description String?

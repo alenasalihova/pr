@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPlansByUserIdAndType = exports.createPlan = void 0;
 const client_1 = require("@prisma/client");
-//import { Plan, CreatePlanInput } from './models/Plan';
-//import { User, CreateUserInput } from './dist/models/User';
+import { Plan, CreatePlanInput } from './dist/models/Plan';
+import { User, CreateUserInput } from './dist/models/User';
 const prisma = new client_1.PrismaClient();
 const createPlan = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { title, description, userId, planType } = req.body;

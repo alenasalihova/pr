@@ -9,6 +9,6 @@
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/routes/planRoutes.js", "src/routes/planRoutes.js"],
   "exclude": ["node_modules"]
 }
