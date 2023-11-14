@@ -7,7 +7,7 @@ const planRoutes = require('../src/routes/planRoutes');
 const app = express();
 const port = 3000;
 // Підключення до MySQL бази даних
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
@@ -17,10 +17,10 @@ db.connect((err) => {
     if (err)
         throw err;
     console.log('Connected to the database');
-});
+});*/
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 // Роути
 app.use('/plan', planRoutes);
