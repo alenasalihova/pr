@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-//import { Plan, CreatePlanInput } from './models/Plan';
-//import { User, CreateUserInput } from './dist/models/User';
+//import { Plan, CreatePlanInput } from '../dist/models/Plan';
 
 const prisma = new PrismaClient();
 
