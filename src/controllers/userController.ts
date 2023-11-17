@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export const register = async (req: Request, res: Response) => {
+const register = async (req: Request, res: Response) => {
   const { username, password } = req.body;
   try {
     const newUser = await prisma.user.create({
@@ -13,14 +13,14 @@ export const register = async (req: Request, res: Response) => {
       },
     });
     res.send(newUser);
-  } catch (error:any) {
+  } catch (error: any) {
     res.status(500).send({
       message: error.message || 'Some error occurred while creating the User.',
     });
   }
 };
 
-export const getUserById = async (req: Request, res: Response) => {
+const getUserById = async (req: Request, res: Response) => {
   const userId = parseInt(req.params.userId);
   try {
     const user = await prisma.user.findUnique({
@@ -39,3 +39,5 @@ export const getUserById = async (req: Request, res: Response) => {
     });
   }
 };
+
+export { register, getUserById };
