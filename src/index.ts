@@ -1,34 +1,33 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const mysql = require('mysql');
-const authRoutes = require('../src/routes/authRoutes');
-const planRoutes = require('../src/routes/planRoutes');
-const userRoutes = require('../src/routes/userRoutes');
+import express from 'express';
+import session from 'express-session';
+// import mysql from 'mysql';
+import authRouter from '../src/routes/authRoutes';
+import planRoutes from '../src/routes/planRoutes';
+import userRoutes from '../src/routes/userRoutes';
 
 const app = express();
 const port = 3000;
 
 // Підключення до MySQL бази даних
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'learning_app'
-});
+// const db = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'password',
+//   database: 'learning_app'
+// });
 
-db.connect((err:any) => {
-  if (err) throw err;
-  console.log('Connected to the database');
-});
+// db.connect((err:any) => {
+//   if (err) throw err;
+//   console.log('Connected to the database');
+// });
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
 
 // Роути
-app.use('/auth', authRoutes);
+app.use('/auth', authRouter);
 app.use('/plan', planRoutes);
 app.use('/user', userRoutes);
 
